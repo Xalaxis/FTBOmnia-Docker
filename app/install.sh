@@ -2,7 +2,7 @@
 set -e # Error out immediately on failed line
 set +x # Don't print commands as they are run
 
-VERSION="48"
+VERSION="46"
 
 # 48 = 1.2.0
 # 46 = 1.1.0
