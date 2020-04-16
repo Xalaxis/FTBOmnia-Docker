@@ -1,0 +1,13 @@
+minecraft-server:
+  ports:
+    - "25565:25565"
+
+  build: .
+
+  container_name: ftb_omnia
+
+  tty: true
+  stdin_open: true
+  restart: unless-stopped
+  volumes:
+    - /opt/wolfware/mounts/FTBOmnia/world:/usr/src/ftbomnia/world
