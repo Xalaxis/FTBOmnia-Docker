@@ -10,4 +10,6 @@ minecraft-server:
   stdin_open: true
   restart: unless-stopped
   volumes:
-    - /opt/wolfware/mounts/FTBOmnia:/usr/src/ftbomnia
+    - /opt/wolfware/mounts/FTBOmnia/world:/usr/src/ftbomnia/world
+    - /opt/wolfware/mounts/FTBOmnia/logs:/usr/src/ftbomnia/logs
+    
