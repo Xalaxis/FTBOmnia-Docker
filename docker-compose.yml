@@ -1,8 +1,8 @@
 minecraft-server:
   ports:
     - "25565:25565"
-
-  build: .
+  
+  image: wolfrazu/ftb-omnia:latest
 
   container_name: ftb_omnia
 
@@ -10,4 +10,4 @@ minecraft-server:
   stdin_open: true
   restart: unless-stopped
   volumes:
-    - /opt/wolfware/mounts/FTBOmnia/world:/usr/src/ftbomnia/world
+    - /opt/wolfware/mounts/FTBOmnia:/usr/src/ftbomnia
