@@ -6,10 +6,13 @@ minecraft-server:
 
   container_name: ftb_omnia
 
+  environment:
+    # Set what version of the pack is wanted
+    VERSION: "LATEST"
+
   tty: true
   stdin_open: true
   restart: unless-stopped
   volumes:
-    - /opt/wolfware/mounts/FTBOmnia/world:/usr/src/ftbomnia/world
-    - /opt/wolfware/mounts/FTBOmnia/logs:/usr/src/ftbomnia/logs
+    - /opt/wolfware/mounts/FTBOmnia:/usr/src/ftbomnia
     
