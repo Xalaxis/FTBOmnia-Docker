@@ -2,23 +2,21 @@
 set -e # Error out immediately on failed line
 set +x # Don't print commands as they are run
 
-VERSION="48"
+# VERSION="48"
+# VERSION now set in Dockerfile or overridden from command line
 
-# 48 = 1.2.0
-# 46 = 1.1.0
+# If we're using the latest version (it's not manually specified)
+if [ "$VERSION" == "LATEST" ]
+# Lookup the latest version available from the API and save it to the version variable
+then VERSION=$(curl https://api.modpacks.ch/public/modpack/6/ | jq '.versions[-1].id'); fi;
 
 
 
 
-#mkdir -p /usr/src/ftbomnia # Make 
-#cp serverinstall_6_48 /usr/src/ftbomnia
-#cd /usr/src/ftbomnia
 echo "Downloading installer..."
-wget https://api.modpacks.ch/public/modpack/6/48/server/linux -O installer
+wget https://api.modpacks.ch/public/modpack/6/$VERSION/server/linux --content-disposition
 echo "Making it executable..."
-chmod +x ./installer
-echo "Specifying modpack version"
-mv ./installer ./serverinstall_6_$VERSION # The installer can install any version, and checks the filename to choose which to use
+chmod +x ./serverinstall_6_$VERSION
 echo "Executing installer..."
 yes y | ./serverinstall_6_$VERSION # Agree to Installation
 echo "Creating Minecraft EULA file"
