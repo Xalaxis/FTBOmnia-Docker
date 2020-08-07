@@ -42,4 +42,4 @@ yes y | ./serverinstall_6_$VERSION # Agree to Installation
 echo "Creating Minecraft EULA file"
 echo "eula=true" > eula.txt # Agree to Minecraft EULA
 echo "Starting Minecraft server..."
-java -server -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -Xmx4G -Xms3072M -jar forge-*.jar nogui
+java -server -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -Xmx4G -Xms3072M -Dfml.queryResult=confirm -jar forge-*.jar nogui
